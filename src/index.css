@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+/* Design System - Ouvido Assembleiano */
+:root {
+  --color-primary: #f97316;
+  --color-primary-hover: #ea580c;
+  --color-accent: #f94f06;
+  --color-background: #fafafa;
+  --color-foreground: #0a0a0a;
+  --color-muted: #737373;
+  --color-border: #e5e5e5;
+  --color-success: hsl(142, 76%, 36%);
+  --color-error: hsl(0, 72%, 51%);
+  --color-streak: hsl(262, 83%, 58%);
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Feeling Passionate", "Dancing Script", cursive;
+}
+
+.dark {
+  --color-background: #0a0a0a;
+  --color-foreground: #fafafa;
+  --color-muted: #a3a3a3;
+  --color-border: #262626;
+}
+
+/* Fonte local Feeling Passionate */
+@font-face {
+  font-family: "Feeling Passionate";
+  src: url("/fonts/Feeling Passionate.otf") format("opentype");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* Animação de pulsar suave para logos */
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.92;
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* Animação de seta para scroll */
+@keyframes scroll-hint {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(6px);
+  }
+}
+
+.animate-scroll-hint {
+  animation: scroll-hint 2s ease-in-out infinite;
+}
+
+/* Animação de swipe horizontal */
+@keyframes swipe-hint {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(8px);
+  }
+}
+
+.animate-swipe-hint {
+  animation: swipe-hint 2s ease-in-out infinite;
+}
+
+/* Esconde scrollbar do carrossel no mobile */
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar transparente - adapta ao background */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+}
+
+html.dark {
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.dark html::-webkit-scrollbar-thumb,
+html.dark::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.dark html::-webkit-scrollbar-thumb:hover,
+html.dark::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Alternância visual entre seções */
+.section-block {
+  width: 100%;
+}
+
+.section-block--base {
+  background-color: var(--color-background);
+}
+
+/* Header + Hero compartilham o mesmo background no dark mode */
+.hero-area {
+  background-color: var(--color-background);
+}
+
+/* Light mode: alterna entre claro (#fafafa) e escuro com gradient elegante (charcoal) */
+.section-block--alt {
+  --color-background: #1a1a1a;
+  --color-foreground: #fafafa;
+  --color-muted: #a3a3a3;
+  --color-border: #2e2e2e;
+  background: linear-gradient(
+    135deg,
+    #242424 0%,
+    #1c1c1c 40%,
+    #1a1a1a 70%,
+    #161616 100%
+  );
+}
+
+/* Dark mode: alterna entre escuro (#0a0a0a) e claro com gradient elegante */
+.dark .section-block--alt {
+  --color-background: #fafafa;
+  --color-foreground: #0a0a0a;
+  --color-muted: #737373;
+  --color-border: #e5e5e5;
+  background: linear-gradient(
+    165deg,
+    #f5f5f5 0%,
+    #fafafa 40%,
+    #f8f8f8 70%,
+    #fafafa 100%
+  );
+}
