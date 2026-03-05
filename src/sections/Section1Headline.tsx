@@ -10,9 +10,9 @@ export function Section1Headline() {
         <h1 className="mb-4 text-xl font-extrabold leading-tight text-[var(--color-foreground)] sm:text-2xl md:text-3xl">
           O único app que treina seu ouvido com vozes reais da igreja, desafinadas, sem banda, sob
           pressão e igualzinho ao{' '}
-          <span className="text-[#f94f06]"> ao vivo de verdade</span>.
+          <span className="text-[#f94f06]"> ao vivo de verdade</span>
         </h1>
-        <p className="mb-8 text-sm text-[var(--color-muted)]">
+        <p className="mb-8 text-sm text-[var(--color-foreground)]/80 sm:text-base">
           Em 7 dias de treino, você para de travar, para de depender de cifra e começa a pegar o tom
           antes de todo mundo. Isso tudo simulando o caos do ao vivo!
         </p>

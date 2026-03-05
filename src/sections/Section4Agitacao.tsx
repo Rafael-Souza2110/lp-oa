@@ -46,7 +46,7 @@ export function Section4Agitacao() {
             </h3>
             <ul className="mb-6 space-y-3">
               {realidadeAoVivo.map((item, i) => (
-                <li key={i} className="flex gap-2 text-gray-800">
+                <li key={i} className="flex gap-2 text-[var(--color-foreground)]">
                   <span className="text-[#f97316]">•</span>
                   {item}
                 </li>
