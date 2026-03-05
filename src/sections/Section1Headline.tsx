@@ -28,7 +28,7 @@ export function Section1Headline() {
           <CTAButton scrollTo="solucao">Treinar meu ouvido agora mesmo!</CTAButton>
           <a
             href="#situacoes"
-            className="mt-8 flex justify-center text-[var(--color-muted)] transition hover:text-[#f97316]"
+            className="mt-8 flex justify-center text-[var(--color-muted)] transition active:scale-95 hover:text-[#f97316] touch-manipulation"
             aria-label="Rolar para ver mais"
           >
             <svg

@@ -196,7 +196,7 @@ export function Carousel<T>({
             key={i}
             type="button"
             onClick={() => goTo(i)}
-            className={`h-2 rounded-full transition-all ${
+            className={`h-2 rounded-full transition-all active:scale-90 touch-manipulation ${
               i === activeIndex ? 'w-6 bg-[#f97316]' : 'w-2 bg-[var(--color-border)]'
             }`}
             aria-label={`${ariaLabelPrefix} ${i + 1}`}

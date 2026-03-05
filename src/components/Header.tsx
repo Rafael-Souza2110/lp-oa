@@ -26,7 +26,7 @@ export function Header() {
         <button
           type="button"
           onClick={toggleTheme}
-          className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-1 rounded-full border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 shadow-sm transition hover:border-[#f97316]/50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#f97316]/50 sm:right-6"
+          className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-1 rounded-full border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 shadow-sm transition active:scale-[0.98] hover:border-[#f97316]/50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#f97316]/50 sm:right-6 touch-manipulation"
           aria-label={theme === 'dark' ? 'Alternar para modo claro' : 'Alternar para modo escuro'}
           title={theme === 'dark' ? 'Clique para modo claro' : 'Clique para modo escuro'}
         >
