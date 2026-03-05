@@ -28,7 +28,7 @@ export function Section5Solucao() {
         <p className="mb-8 text-[var(--color-muted)]">
           Você não fica mais dependente de cifra. <span className="text-[#f94f06]">Seu ouvido vira a cifra</span>.
         </p>
-        <div className="mb-8 mx-auto max-w-[75%] overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-lg">
+        <div className="mx-auto mb-8 max-w-[75%]">
           <img
             src="/images/demo-app-gif.gif"
             alt="Demonstração do app Ouvido Assembleiano por dentro"
