@@ -28,11 +28,20 @@ export function Section5Solucao() {
         <p className="mb-8 text-[var(--color-muted)]">
           Você não fica mais dependente de cifra. <span className="text-[#f94f06]">Seu ouvido vira a cifra</span>.
         </p>
-        <YouTubeEmbed
-          videoId={config.videos.apresentacao}
-          title="Ouvido Assembleiano - Apresentação do app"
-          className="mb-8"
-        />
+        <div className="mb-8 mx-auto max-w-[75%] overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-lg">
+          <img
+            src="/images/demo-app-gif.gif"
+            alt="Demonstração do app Ouvido Assembleiano por dentro"
+            className="w-full"
+          />
+        </div>
+        {config.videos.apresentacao && (
+          <YouTubeEmbed
+            videoId={config.videos.apresentacao}
+            title="Ouvido Assembleiano - Apresentação do app"
+            className="mb-8"
+          />
+        )}
         <div className="text-center">
           <CTAButton>Quero começar a treinar</CTAButton>
         </div>
