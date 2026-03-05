@@ -1,5 +1,6 @@
 import { AnimateOnScroll } from './components/AnimateOnScroll'
 import { Header } from './components/Header'
+import { ScrollProgressBar } from './components/ScrollProgressBar'
 import { Section1Headline } from './sections/Section1Headline'
 import { Section2Dor } from './sections/Section2Dor'
 import { Section3Reframe } from './sections/Section3Reframe'
@@ -16,6 +17,7 @@ import { Footer } from './components/Footer'
 function App() {
   return (
     <div className="min-h-screen">
+      <ScrollProgressBar />
       <div className="hero-area">
         <Header />
         <div className="section-block section-block--base">
