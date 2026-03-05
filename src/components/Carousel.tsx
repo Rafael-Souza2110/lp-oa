@@ -198,24 +198,40 @@ export function Carousel<T>({
       </div>
       {/* Desktop: conteúdo customizado */}
       {desktopContent}
-      {/* Dots - apenas no mobile (min 44px touch target para acessibilidade) */}
-      <div className="mt-6 flex justify-center gap-2 md:hidden">
-        {items.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => goTo(i)}
-            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 transition-all active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f97316] focus-visible:ring-offset-2 touch-manipulation"
-            aria-label={`${ariaLabelPrefix} ${i + 1}`}
-          >
-            <span
-              className={`block h-2 rounded-full transition-all ${
-                i === activeIndex ? 'w-6 bg-[#f97316]' : 'w-2 bg-[var(--color-border)]'
+      {/* Dots - apenas no mobile. Bem compactos quando muitos itens (>6) para caber em telas pequenas */}
+      <div className="mt-6 flex justify-center md:hidden">
+        <div
+          className={`flex items-center justify-center overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] ${
+            items.length > 6 ? 'max-w-full gap-0.5 px-1' : 'gap-2'
+          }`}
+        >
+          {items.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => goTo(i)}
+              className={`flex shrink-0 items-center justify-center rounded-full transition-all active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f97316] focus-visible:ring-offset-1 touch-manipulation ${
+                items.length > 6
+                  ? 'h-5 w-5 min-h-[20px] min-w-[20px] p-0.5'
+                  : 'min-h-[44px] min-w-[44px] p-2'
               }`}
-              aria-hidden
-            />
-          </button>
-        ))}
+              aria-label={`${ariaLabelPrefix} ${i + 1}`}
+            >
+              <span
+                className={`block rounded-full transition-all ${
+                  items.length > 6
+                    ? i === activeIndex
+                      ? 'h-1.5 w-3 bg-[#f97316]'
+                      : 'h-1 w-1 bg-[var(--color-border)]'
+                    : i === activeIndex
+                      ? 'h-2 w-5 bg-[#f97316]'
+                      : 'h-1.5 w-1.5 bg-[var(--color-border)]'
+                }`}
+                aria-hidden
+              />
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   )

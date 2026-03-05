@@ -6,6 +6,13 @@ const depoimentosImages = [
   '/images/depoimento3-oa.png',
   '/images/depoimento4-oa.png',
   '/images/depoimento5-oa.png',
+  '/images/depoimento6-oa.png',
+  '/images/depoimento7-oa.png',
+  '/images/depoimento8-oa.png',
+  '/images/depoimento9-oa.png',
+  '/images/depoimento10-oa.png',
+  '/images/depoimento11-oa.png',
+  '/images/depoimento12-oa.png',
 ]
 
 export function Section9Depoimentos() {
