@@ -52,10 +52,13 @@ function FAQItem({ pergunta, resposta }: { pergunta: string; resposta: string })
       <button
         type="button"
         onClick={() => setAberto(!aberto)}
+        aria-expanded={aberto}
         className="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold text-[var(--color-foreground)]"
       >
         {pergunta}
-        <span className="shrink-0 text-[#f97316]">{aberto ? '−' : '+'}</span>
+        <span className="shrink-0 text-[#f97316]" aria-hidden>
+          {aberto ? '−' : '+'}
+        </span>
       </button>
       {aberto && (
         <div className="pb-5 pr-8 text-[var(--color-muted)]">{resposta}</div>

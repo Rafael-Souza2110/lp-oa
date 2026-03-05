@@ -5,7 +5,7 @@
 
 export const config = {
   /** Link do checkout Hotmart */
-  checkoutUrl: '#CHECKOUT_HOTMART',
+  checkoutUrl: 'https://pay.hotmart.com/M103015699U?off=698mux4e&checkoutMode=10',
 
   /** Link do WhatsApp para suporte/dúvidas */
   whatsappUrl: 'https://wa.me/5585982269676',
@@ -14,8 +14,6 @@ export const config = {
   videos: {
     /** Seção 1 - Vídeo abaixo da sub headline */
     hero: 'xHqUfu1-css',
-    /** Seção 5 - Apresentação do produto / como é o app por dentro */
-    apresentacao: '',
   },
 
   /** Temporizador fixo (exibido na oferta) */

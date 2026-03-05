@@ -1,5 +1,3 @@
-import { config } from '../config'
-import { YouTubeEmbed } from '../components/YouTubeEmbed'
 import { CTAButton } from '../components/CTAButton'
 
 export function Section5Solucao() {
@@ -35,13 +33,6 @@ export function Section5Solucao() {
         <p className="mb-8 text-[var(--color-muted)]">
           Você não fica mais dependente de cifra. <span className="text-[#f94f06]">Seu ouvido vira a cifra</span>.
         </p>
-        {config.videos.apresentacao && (
-          <YouTubeEmbed
-            videoId={config.videos.apresentacao}
-            title="Ouvido Assembleiano - Apresentação do app"
-            className="mb-8"
-          />
-        )}
         <div className="text-center">
           <CTAButton>Quero começar a treinar</CTAButton>
         </div>
