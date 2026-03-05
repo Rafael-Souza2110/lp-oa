@@ -10,28 +10,25 @@ export function Section10ObjecaoPreco() {
     <section className="border-t border-[var(--color-border)] px-4 py-16 sm:px-6 sm:py-20">
       <div className="container mx-auto max-w-3xl">
         <h2 className="mb-10 text-center text-2xl font-extrabold text-[var(--color-foreground)] sm:text-3xl">
-          Preços aí fora X <span className="text-[#f94f06]">Ouvido</span>{' '}
+          Preços aí fora X{' '}
+          <span className="text-[#f94f06]">Ouvido</span>{' '}
           <span className="font-script text-[#f94f06]">Assembleiano</span>
         </h2>
         <div className="space-y-4">
           {alternativas.map((alt, i) => (
             <div
               key={i}
-              className="flex flex-col justify-between gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] p-4 sm:flex-row sm:items-center"
+              className="flex flex-col justify-between gap-2 rounded-xl border-2 border-red-600 bg-[var(--color-background)] p-4 dark:border-red-500 sm:flex-row sm:items-center"
             >
-              <span className="font-medium text-[var(--color-foreground)]">{alt.item}</span>
-              <span
-                className={
-                  alt.preco.includes('R$') ? 'font-medium text-red-600 dark:text-red-400' : 'text-[var(--color-muted)]'
-                }
-              >
+              <span className="font-bold text-[var(--color-foreground)]">{alt.item}</span>
+              <span className="font-medium text-red-600 dark:text-red-400">
                 {alt.preco}
               </span>
             </div>
           ))}
         </div>
         <p className="mt-8 text-center text-lg font-semibold text-[var(--color-foreground)]">
-          E o <span className="text-[#f94f06]">OUVIDO ASSEMBLEIANO</span> quanto custa? kk veja a bizarrice logo abaixo
+          E o <span className="font-bold text-[#f94f06]">OUVIDO ASSEMBLEIANO</span> quanto custa? kk veja a bizarrice logo abaixo
         </p>
       </div>
     </section>

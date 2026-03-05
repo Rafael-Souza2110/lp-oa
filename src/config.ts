@@ -16,10 +16,10 @@ export const config = {
     hero: 'xHqUfu1-css',
   },
 
-  /** Temporizador fixo (exibido na oferta) */
+  /** Temporizador regressivo (inicia quando o usuário acessa a página) */
   countdown: {
-    days: 3,
-    hours: 12,
-    minutes: 30,
+    hours: 3,
+    minutes: 11,
+    seconds: 28,
   },
 } as const

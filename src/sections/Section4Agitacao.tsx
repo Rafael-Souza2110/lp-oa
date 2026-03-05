@@ -19,7 +19,7 @@ export function Section4Agitacao() {
       <div className="container mx-auto max-w-5xl">
         <h2 className="mb-12 text-center text-2xl font-extrabold text-[var(--color-foreground)] sm:text-3xl">
           Você treina em condições perfeitas. Mas toca em{' '}
-          <span className="text-red-600 dark:text-red-400">condições caóticas.</span>
+          <span className="text-red-600 dark:text-red-500">condições caóticas.</span>
         </h2>
         <div className="grid gap-8 md:grid-cols-2">
           <div className="rounded-2xl border-2 border-red-600 bg-white p-6 shadow-sm dark:border-red-500 dark:bg-white">
@@ -35,7 +35,7 @@ export function Section4Agitacao() {
               ))}
             </ul>
             <div className="rounded-xl bg-red-50 p-4 dark:bg-red-950/30">
-              <p className="font-semibold text-red-700 dark:text-red-400">
+              <p className="font-semibold text-red-600 dark:text-red-500">
                 O resultado: Uma falsa sensação de progresso
               </p>
             </div>
