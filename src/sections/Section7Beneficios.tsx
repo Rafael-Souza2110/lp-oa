@@ -27,9 +27,6 @@ export function Section7Beneficios() {
   return (
     <section className="border-t border-[var(--color-border)] px-4 py-16 sm:px-6 sm:py-20">
       <div className="container mx-auto max-w-3xl">
-        <p className="mb-4 text-center text-sm font-semibold uppercase tracking-wide text-[#f97316]">
-          {beneficios.length} transformações
-        </p>
         <h2 className="mb-6 text-center text-2xl font-extrabold text-[var(--color-foreground)] sm:text-3xl">
           O que muda depois do Ouvido <span className="font-script text-[#f94f06]">Assembleiano</span>?
         </h2>
