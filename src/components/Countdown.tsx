@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { config } from '../config'
 
 function pad(n: number) {
@@ -28,11 +28,12 @@ export function Countdown() {
     seconds: initSeconds,
   })
   const [isExpired, setIsExpired] = useState(false)
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    timerRef.current = setInterval(() => {
       setTimeLeft((prev) => {
-        let { hours, minutes, seconds } = prev
+        const { hours, minutes, seconds } = prev
 
         if (seconds > 0) {
           return { ...prev, seconds: seconds - 1 }
@@ -43,13 +44,25 @@ export function Countdown() {
         if (hours > 0) {
           return { hours: hours - 1, minutes: 59, seconds: 59 }
         }
-        setIsExpired(true)
-        return prev
+        return { hours: 0, minutes: 0, seconds: 0 }
       })
     }, 1000)
 
-    return () => clearInterval(timer)
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current)
+    }
   }, [])
+
+  useEffect(() => {
+    const { hours, minutes, seconds } = timeLeft
+    if (hours === 0 && minutes === 0 && seconds === 0) {
+      setIsExpired(true)
+      if (timerRef.current) {
+        clearInterval(timerRef.current)
+        timerRef.current = null
+      }
+    }
+  }, [timeLeft])
 
   if (isExpired) {
     return (

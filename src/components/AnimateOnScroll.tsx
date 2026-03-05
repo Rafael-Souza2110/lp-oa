@@ -10,6 +10,18 @@ interface AnimateOnScrollProps {
   threshold?: number
 }
 
+function useReducedMotion() {
+  const [reduceMotion, setReduceMotion] = useState(false)
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setReduceMotion(mq.matches)
+    const handler = () => setReduceMotion(mq.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+  return reduceMotion
+}
+
 export function AnimateOnScroll({
   children,
   className = '',
@@ -19,6 +31,7 @@ export function AnimateOnScroll({
 }: AnimateOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
     const el = ref.current
@@ -40,14 +53,17 @@ export function AnimateOnScroll({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out ${className} ${
+      className={`${reduceMotion ? '' : 'transition-all duration-700 ease-out'} ${className} ${
         isVisible
           ? 'translate-y-0 opacity-100'
           : animation === 'fade-up'
             ? 'translate-y-8 opacity-0'
             : 'opacity-0'
       }`}
-      style={{ transitionDelay: isVisible ? `${delay}ms` : '0ms' }}
+      style={{
+        transitionDelay: isVisible ? `${delay}ms` : '0ms',
+        ...(reduceMotion && { transition: 'none' }),
+      }}
     >
       {children}
     </div>

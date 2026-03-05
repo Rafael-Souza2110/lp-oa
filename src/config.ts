@@ -1,6 +1,7 @@
 /**
  * Configurações centralizadas da página de vendas.
  * Atualize os links quando tiver os valores finais.
+ * Para SEO: atualize as meta tags Open Graph e Twitter em index.html com a URL final ao fazer deploy.
  */
 
 export const config = {

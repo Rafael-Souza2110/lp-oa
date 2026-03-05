@@ -24,6 +24,14 @@ export function Carousel<T>({
   const autoSlideTimerRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const isJumpingRef = useRef(false)
 
+  if (items.length === 0) {
+    return (
+      <div className="w-full">
+        {desktopContent}
+      </div>
+    )
+  }
+
   const loopItems = [items[items.length - 1], ...items, items[0]]
   const REAL_START = 1
   const REAL_END = items.length
@@ -189,18 +197,23 @@ export function Carousel<T>({
       </div>
       {/* Desktop: conteúdo customizado */}
       {desktopContent}
-      {/* Dots - apenas no mobile */}
+      {/* Dots - apenas no mobile (min 44px touch target para acessibilidade) */}
       <div className="mt-6 flex justify-center gap-2 md:hidden">
         {items.map((_, i) => (
           <button
             key={i}
             type="button"
             onClick={() => goTo(i)}
-            className={`h-2 rounded-full transition-all active:scale-90 touch-manipulation ${
-              i === activeIndex ? 'w-6 bg-[#f97316]' : 'w-2 bg-[var(--color-border)]'
-            }`}
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 transition-all active:scale-90 touch-manipulation"
             aria-label={`${ariaLabelPrefix} ${i + 1}`}
-          />
+          >
+            <span
+              className={`block h-2 rounded-full transition-all ${
+                i === activeIndex ? 'w-6 bg-[#f97316]' : 'w-2 bg-[var(--color-border)]'
+              }`}
+              aria-hidden
+            />
+          </button>
         ))}
       </div>
     </div>

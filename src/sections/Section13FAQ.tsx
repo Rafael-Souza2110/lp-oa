@@ -39,15 +39,25 @@ const faqs = [
   },
 ]
 
-function FAQItem({ pergunta, resposta }: { pergunta: string; resposta: string }) {
+function FAQItem({
+  pergunta,
+  resposta,
+  id,
+}: {
+  pergunta: string
+  resposta: string
+  id: string
+}) {
   const [aberto, setAberto] = useState(false)
 
   return (
     <div className="border-b border-[var(--color-border)] last:border-b-0">
       <button
         type="button"
+        id={`${id}-btn`}
         onClick={() => setAberto(!aberto)}
         aria-expanded={aberto}
+        aria-controls={id}
         className="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold text-[var(--color-foreground)] transition active:scale-[0.99] touch-manipulation"
       >
         {pergunta}
@@ -59,6 +69,9 @@ function FAQItem({ pergunta, resposta }: { pergunta: string; resposta: string })
         </span>
       </button>
       <div
+        id={id}
+        role="region"
+        aria-labelledby={`${id}-btn`}
         className="grid transition-[grid-template-rows] duration-300 ease-out"
         style={{ gridTemplateRows: aberto ? '1fr' : '0fr' }}
       >
@@ -80,7 +93,12 @@ export function Section13FAQ() {
         </h2>
         <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)] p-6 shadow-sm">
           {faqs.map((faq, i) => (
-            <FAQItem key={i} pergunta={faq.pergunta} resposta={faq.resposta} />
+            <FAQItem
+              key={i}
+              id={`faq-${i}`}
+              pergunta={faq.pergunta}
+              resposta={faq.resposta}
+            />
           ))}
         </div>
         <div className="mt-16 text-center">
