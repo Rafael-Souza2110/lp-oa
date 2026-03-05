@@ -67,7 +67,8 @@ export function Section13FAQ() {
     <section className="border-t border-[var(--color-border)] px-4 py-16 sm:px-6 sm:py-20">
       <div className="container mx-auto max-w-3xl">
         <h2 className="mb-10 text-center text-2xl font-extrabold text-[var(--color-foreground)] sm:text-3xl">
-          Perguntas que todos fazem antes de assinar o Ouvido Assembleiano
+          Perguntas que todos fazem antes de assinar o{' '}
+          <span className="text-[#f97316]">Ouvido Assembleiano</span>
         </h2>
         <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)] p-6 shadow-sm">
           {faqs.map((faq, i) => (
