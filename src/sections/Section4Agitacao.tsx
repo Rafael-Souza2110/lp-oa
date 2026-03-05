@@ -22,20 +22,20 @@ export function Section4Agitacao() {
           <span className="text-red-600 dark:text-red-400">condições caóticas.</span>
         </h2>
         <div className="grid gap-8 md:grid-cols-2">
-          <div className="rounded-2xl border border-red-200 bg-red-50 p-6 shadow-sm dark:border-red-900/40 dark:bg-red-950/20">
-            <h3 className="mb-4 text-xl font-bold text-red-900 dark:text-red-100">
+          <div className="rounded-2xl border-2 border-red-600 bg-white p-6 shadow-sm dark:border-red-500 dark:bg-white">
+            <h3 className="mb-4 text-xl font-bold text-red-600 dark:text-red-500">
               Treino Fantasia
             </h3>
             <ul className="mb-6 space-y-3">
               {treinoFantasia.map((item, i) => (
-                <li key={i} className="flex gap-2 text-red-900/90 dark:text-[var(--color-muted)]">
-                  <span className="text-red-500 dark:text-red-500">•</span>
+                <li key={i} className="flex gap-2 text-gray-800">
+                  <span className="text-red-500">•</span>
                   {item}
                 </li>
               ))}
             </ul>
-            <div className="rounded-xl bg-red-100 p-4 dark:bg-red-900/30">
-              <p className="font-semibold text-red-800 dark:text-red-400">
+            <div className="rounded-xl bg-red-50 p-4 dark:bg-red-950/30">
+              <p className="font-semibold text-red-700 dark:text-red-400">
                 O resultado: Uma falsa sensação de progresso
               </p>
             </div>

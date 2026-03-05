@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react'
 
 interface DepoimentosCarouselProps {
   images: string[]
@@ -14,6 +14,11 @@ export function DepoimentosCarousel({
   const scrollRef = useRef<HTMLDivElement>(null)
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
   const autoSlideTimerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const isJumpingRef = useRef(false)
+
+  const loopImages = [images[images.length - 1], ...images, images[0]]
+  const REAL_START = 1
+  const REAL_END = images.length
 
   const scrollToCard = useCallback(
     (index: number, smooth = true) => {
@@ -33,25 +38,51 @@ export function DepoimentosCarousel({
     (index: number) => {
       const next = Math.max(0, Math.min(index, images.length - 1))
       setActiveIndex(next)
-      scrollToCard(next)
+      scrollToCard(next + 1)
     },
     [images.length, scrollToCard]
   )
 
+  useLayoutEffect(() => {
+    const el = scrollRef.current
+    if (!el || images.length <= 1) return
+
+    const card = cardRefs.current[REAL_START]
+    if (card) {
+      el.scrollLeft = Math.max(0, card.offsetLeft - (el.offsetWidth - card.offsetWidth) / 2)
+    }
+  }, [images.length])
+
   useEffect(() => {
     const el = scrollRef.current
-    if (!el) return
+    if (!el || images.length <= 1) return
 
     const handleScroll = () => {
+      if (isJumpingRef.current) return
+
       const scrollLeft = el.scrollLeft
       const slideWidth = cardRefs.current[0]?.getBoundingClientRect().width ?? el.offsetWidth
-      const index = Math.round(scrollLeft / (slideWidth + 16))
-      setActiveIndex(Math.min(Math.max(0, index), images.length - 1))
+      const gap = 16
+      const rawIndex = Math.round(scrollLeft / (slideWidth + gap))
+
+      if (rawIndex <= 0) {
+        isJumpingRef.current = true
+        setActiveIndex(images.length - 1)
+        scrollToCard(REAL_END, false)
+        setTimeout(() => { isJumpingRef.current = false }, 50)
+      } else if (rawIndex >= loopImages.length - 1) {
+        isJumpingRef.current = true
+        setActiveIndex(0)
+        scrollToCard(REAL_START, false)
+        setTimeout(() => { isJumpingRef.current = false }, 50)
+      } else {
+        setActiveIndex(rawIndex - 1)
+      }
     }
 
     el.addEventListener('scroll', handleScroll, { passive: true })
     return () => el.removeEventListener('scroll', handleScroll)
-  }, [images.length])
+  }, [images.length, scrollToCard])
 
   useEffect(() => {
     const el = scrollRef.current
@@ -70,7 +101,7 @@ export function DepoimentosCarousel({
       autoSlideTimerRef.current = setInterval(() => {
         setActiveIndex((prev) => {
           const next = prev >= images.length - 1 ? 0 : prev + 1
-          scrollToCard(next)
+          scrollToCard(next + 1)
           return next
         })
       }, autoSlideDuration)
@@ -127,7 +158,7 @@ export function DepoimentosCarousel({
           ref={scrollRef}
           className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain scroll-smooth pb-4 [-ms-overflow-style:none] [scrollbar-width:none]"
         >
-          {images.map((src, i) => (
+          {loopImages.map((src, i) => (
             <div
               key={i}
               ref={(el) => {

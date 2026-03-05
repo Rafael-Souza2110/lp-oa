@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react'
 import { SituacaoCard } from './SituacaoCard'
 
 interface Item {
@@ -17,6 +17,11 @@ export function SituacoesCarousel({ items, autoSlideDuration = 10000 }: Situacoe
   const scrollRef = useRef<HTMLDivElement>(null)
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
   const autoSlideTimerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const isJumpingRef = useRef(false)
+
+  const loopItems = [items[items.length - 1], ...items, items[0]]
+  const REAL_START = 1
+  const REAL_END = items.length
 
   const scrollToCard = useCallback(
     (index: number, smooth = true) => {
@@ -36,25 +41,52 @@ export function SituacoesCarousel({ items, autoSlideDuration = 10000 }: Situacoe
     (index: number) => {
       const next = Math.max(0, Math.min(index, items.length - 1))
       setActiveIndex(next)
-      scrollToCard(next)
+      scrollToCard(next + 1)
     },
     [items.length, scrollToCard]
   )
 
+  useLayoutEffect(() => {
+    const el = scrollRef.current
+    const isMobile = window.matchMedia('(max-width: 767px)').matches
+    if (!el || items.length <= 1 || !isMobile) return
+
+    const card = cardRefs.current[REAL_START]
+    if (card) {
+      el.scrollLeft = Math.max(0, card.offsetLeft - (el.offsetWidth - card.offsetWidth) / 2)
+    }
+  }, [items.length])
+
   useEffect(() => {
     const el = scrollRef.current
-    if (!el) return
+    if (!el || items.length <= 1) return
 
     const handleScroll = () => {
+      if (isJumpingRef.current) return
+
       const scrollLeft = el.scrollLeft
       const slideWidth = cardRefs.current[0]?.getBoundingClientRect().width ?? el.offsetWidth
-      const index = Math.round(scrollLeft / (slideWidth + 16))
-      setActiveIndex(Math.min(Math.max(0, index), items.length - 1))
+      const gap = 16
+      const rawIndex = Math.round(scrollLeft / (slideWidth + gap))
+
+      if (rawIndex <= 0) {
+        isJumpingRef.current = true
+        setActiveIndex(items.length - 1)
+        scrollToCard(REAL_END, false)
+        setTimeout(() => { isJumpingRef.current = false }, 50)
+      } else if (rawIndex >= loopItems.length - 1) {
+        isJumpingRef.current = true
+        setActiveIndex(0)
+        scrollToCard(REAL_START, false)
+        setTimeout(() => { isJumpingRef.current = false }, 50)
+      } else {
+        setActiveIndex(rawIndex - 1)
+      }
     }
 
     el.addEventListener('scroll', handleScroll, { passive: true })
     return () => el.removeEventListener('scroll', handleScroll)
-  }, [items.length])
+  }, [items.length, scrollToCard])
 
   useEffect(() => {
     const el = scrollRef.current
@@ -73,7 +105,7 @@ export function SituacoesCarousel({ items, autoSlideDuration = 10000 }: Situacoe
       autoSlideTimerRef.current = setInterval(() => {
         setActiveIndex((prev) => {
           const next = prev >= items.length - 1 ? 0 : prev + 1
-          scrollToCard(next)
+          scrollToCard(next + 1)
           return next
         })
       }, autoSlideDuration)
@@ -131,7 +163,7 @@ export function SituacoesCarousel({ items, autoSlideDuration = 10000 }: Situacoe
         ref={scrollRef}
         className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain scroll-smooth pb-4 [-ms-overflow-style:none] [scrollbar-width:none] md:hidden"
       >
-        {items.map((item, i) => (
+        {loopItems.map((item, i) => (
           <div
             key={i}
             ref={(el) => { cardRefs.current[i] = el }}
