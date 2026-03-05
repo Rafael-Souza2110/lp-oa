@@ -18,17 +18,27 @@ export function SituacoesCarousel({ items, autoSlideDuration = 10000 }: Situacoe
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
   const autoSlideTimerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
+  const scrollToCard = useCallback(
+    (index: number, smooth = true) => {
+      const el = scrollRef.current
+      const card = cardRefs.current[index]
+      if (!el || !card) return
+      const targetScroll = card.offsetLeft - (el.offsetWidth - card.offsetWidth) / 2
+      el.scrollTo({
+        left: Math.max(0, targetScroll),
+        behavior: smooth ? 'smooth' : 'auto',
+      })
+    },
+    []
+  )
+
   const goTo = useCallback(
     (index: number) => {
       const next = Math.max(0, Math.min(index, items.length - 1))
       setActiveIndex(next)
-      cardRefs.current[next]?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
-      })
+      scrollToCard(next)
     },
-    [items.length]
+    [items.length, scrollToCard]
   )
 
   useEffect(() => {
@@ -51,20 +61,6 @@ export function SituacoesCarousel({ items, autoSlideDuration = 10000 }: Situacoe
     const isMobile = window.matchMedia('(max-width: 767px)').matches
     if (!el || items.length <= 1 || !isMobile) return
 
-    const startAutoSlide = () => {
-      autoSlideTimerRef.current = setInterval(() => {
-        setActiveIndex((prev) => {
-          const next = prev >= items.length - 1 ? 0 : prev + 1
-          cardRefs.current[next]?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'center',
-          })
-          return next
-        })
-      }, autoSlideDuration)
-    }
-
     const stopAutoSlide = () => {
       if (autoSlideTimerRef.current) {
         clearInterval(autoSlideTimerRef.current)
@@ -72,7 +68,32 @@ export function SituacoesCarousel({ items, autoSlideDuration = 10000 }: Situacoe
       }
     }
 
-    startAutoSlide()
+    const startAutoSlide = () => {
+      stopAutoSlide()
+      autoSlideTimerRef.current = setInterval(() => {
+        setActiveIndex((prev) => {
+          const next = prev >= items.length - 1 ? 0 : prev + 1
+          scrollToCard(next)
+          return next
+        })
+      }, autoSlideDuration)
+    }
+
+    const carouselContainer = el.parentElement
+    if (!carouselContainer) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries
+        if (entry.isIntersecting) {
+          startAutoSlide()
+        } else {
+          stopAutoSlide()
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(carouselContainer)
 
     const handleUserScroll = () => {
       stopAutoSlide()
@@ -82,9 +103,10 @@ export function SituacoesCarousel({ items, autoSlideDuration = 10000 }: Situacoe
     el.addEventListener('scroll', handleUserScroll, { passive: true })
     return () => {
       stopAutoSlide()
+      observer.disconnect()
       el.removeEventListener('scroll', handleUserScroll)
     }
-  }, [items.length, autoSlideDuration])
+  }, [items.length, autoSlideDuration, scrollToCard])
 
   return (
     <div className="w-full">
