@@ -24,6 +24,7 @@ export function YouTubeEmbed({ videoId, title = 'Vídeo', className = '' }: YouT
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
+        loading="lazy"
         className="h-full w-full"
       />
     </div>

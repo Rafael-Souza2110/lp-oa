@@ -8,10 +8,7 @@ function pad(n: number) {
 function CountdownDigit({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex min-w-[60px] flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 sm:min-w-[70px] sm:px-4 sm:py-3">
-      <span
-        key={value}
-        className="inline-block text-xl font-extrabold tabular-nums text-[#f97316] animate-countdown-pulse sm:text-2xl"
-      >
+      <span className="inline-block text-xl font-extrabold tabular-nums text-[#f97316] animate-countdown-pulse sm:text-2xl">
         {value}
       </span>
       <span className="text-xs font-medium text-[var(--color-muted)]">{label}</span>

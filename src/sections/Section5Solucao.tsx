@@ -1,6 +1,7 @@
 function LightbulbIcon() {
   return (
     <svg
+      aria-hidden
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="none"
@@ -41,7 +42,10 @@ export function Section5Solucao() {
           <img
             src="/images/demo-app-gif.gif"
             alt="Demonstração do app Ouvido Assembleiano por dentro"
-            className="w-full"
+            width={640}
+            height={360}
+            className="w-full h-auto"
+            loading="lazy"
           />
         </div>
         <p className="mb-6 text-[var(--color-foreground)]/85">

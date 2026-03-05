@@ -158,7 +158,7 @@ export function Carousel<T>({
   }, [items.length, autoSlideDuration, scrollToCard])
 
   return (
-    <div className="w-full">
+    <div className="w-full" role="region" aria-roledescription="carousel" aria-live="polite">
       {/* Mobile: indicador de swipe */}
       <div className="mb-4 flex items-center justify-center gap-2 md:hidden">
         <span className="text-sm text-[var(--color-muted)]">Deslize para ver mais</span>
@@ -171,6 +171,7 @@ export function Carousel<T>({
           strokeLinecap="round"
           strokeLinejoin="round"
           className="h-5 w-5 animate-swipe-hint text-[#f97316]"
+          aria-hidden
         >
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
@@ -204,7 +205,7 @@ export function Carousel<T>({
             key={i}
             type="button"
             onClick={() => goTo(i)}
-            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 transition-all active:scale-90 touch-manipulation"
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full p-2 transition-all active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f97316] focus-visible:ring-offset-2 touch-manipulation"
             aria-label={`${ariaLabelPrefix} ${i + 1}`}
           >
             <span

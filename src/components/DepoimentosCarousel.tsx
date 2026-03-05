@@ -19,6 +19,7 @@ export function DepoimentosCarousel({
             src={src}
             alt={`Depoimento ${i + 1}`}
             className="w-[75%] object-cover"
+            loading="lazy"
           />
         </div>
       )}
@@ -30,6 +31,7 @@ export function DepoimentosCarousel({
               src={src}
               alt={`Depoimento ${i + 1}`}
               className="w-[75%] object-cover"
+              loading="lazy"
             />
           ))}
         </div>

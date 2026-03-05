@@ -22,13 +22,13 @@ export function Section4Agitacao() {
           <span className="text-red-600 dark:text-red-500">condições caóticas.</span>
         </h2>
         <div className="grid gap-8 md:grid-cols-2">
-          <div className="rounded-2xl border-2 border-red-600 bg-white p-6 shadow-sm dark:border-red-500 dark:bg-white">
+          <div className="rounded-2xl border-2 border-red-600 bg-white p-6 shadow-sm dark:border-red-500 dark:bg-gray-900">
             <h3 className="mb-4 text-xl font-bold text-red-600 dark:text-red-500">
               Treino Fantasia
             </h3>
             <ul className="mb-6 space-y-3">
               {treinoFantasia.map((item, i) => (
-                <li key={i} className="flex gap-2 text-gray-800">
+                <li key={i} className="flex gap-2 text-gray-800 dark:text-gray-200">
                   <span className="text-red-500">•</span>
                   {item}
                 </li>
@@ -42,7 +42,7 @@ export function Section4Agitacao() {
           </div>
           <div className="rounded-2xl border-2 border-[#f97316] bg-[#f97316]/5 p-6 shadow-sm">
             <h3 className="mb-4 text-xl font-bold text-[var(--color-foreground)]">
-              A Realidade do <span className="font-script px-[6px] text-[#f94f06]"> ao vivo</span>
+              A Realidade do <span className="font-script px-[6px] text-[#f94f06]">ao vivo</span>
             </h3>
             <ul className="mb-6 space-y-3">
               {realidadeAoVivo.map((item, i) => (

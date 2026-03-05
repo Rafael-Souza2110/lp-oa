@@ -11,7 +11,7 @@ export function Section1Headline() {
           <h1 className="mb-4 text-xl font-extrabold leading-tight text-[var(--color-foreground)] sm:text-2xl md:text-3xl">
             O único app que treina seu ouvido com vozes reais da igreja, desafinadas, sem banda, sob
             pressão e igualzinho ao{' '}
-            <span className="text-[#f94f06]"> ao vivo de verdade</span>
+            <span className="text-[#f94f06]">ao vivo de verdade</span>
           </h1>
           <p className="mb-8 text-sm text-[var(--color-foreground)]/80 sm:text-base">
             Em 7 dias de treino, você para de travar, para de depender de cifra e começa a pegar o tom
@@ -25,10 +25,12 @@ export function Section1Headline() {
               title="Ouvido Assembleiano - Apresentação"
             />
           </div>
-          <CTAButton scrollTo="solucao">Treinar meu ouvido agora mesmo!</CTAButton>
+          <CTAButton scrollTo="solucao" ariaLabel="Ir para seção de solução">
+            Treinar meu ouvido agora mesmo!
+          </CTAButton>
           <a
             href="#situacoes"
-            className="mt-8 flex justify-center text-[var(--color-muted)] transition active:scale-95 hover:text-[#f97316] touch-manipulation"
+            className="mt-8 flex justify-center text-[var(--color-muted)] transition active:scale-95 hover:text-[#f97316] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f97316] focus-visible:ring-offset-2 rounded-full touch-manipulation"
             aria-label="Rolar para ver mais"
           >
             <svg
@@ -36,6 +38,7 @@ export function Section1Headline() {
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>

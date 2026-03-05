@@ -10,7 +10,7 @@ export function Header() {
     <header className="relative w-full overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-[#f97316]/5 blur-3xl" />
       <div className="container relative mx-auto flex max-w-6xl items-center justify-center px-4 pb-4 pt-8 sm:px-6 sm:pb-5 sm:pt-10">
-        <a href="#" className="flex items-center justify-center">
+        <a href="#" className="flex items-center justify-center" aria-label="Ir ao topo da página">
           <img
             src={logoSrc}
             alt="Ouvido Assembleiano"
@@ -26,7 +26,7 @@ export function Header() {
         <button
           type="button"
           onClick={toggleTheme}
-          className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-1 rounded-full border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 shadow-sm transition active:scale-[0.98] hover:border-[#f97316]/50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#f97316]/50 sm:right-6 touch-manipulation"
+          className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-1 rounded-full border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 shadow-sm transition active:scale-[0.98] hover:border-[#f97316]/50 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f97316]/50 sm:right-6 touch-manipulation"
           aria-label={theme === 'dark' ? 'Alternar para modo claro' : 'Alternar para modo escuro'}
           title={theme === 'dark' ? 'Clique para modo claro' : 'Clique para modo escuro'}
         >
