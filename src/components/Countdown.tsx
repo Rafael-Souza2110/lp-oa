@@ -8,7 +8,7 @@ function pad(n: number) {
 export function Countdown() {
   const { hours: initHours, minutes: initMinutes, seconds: initSeconds } = config.countdown
 
-  const [timeLeft, setTimeLeft] = useState({
+  const [timeLeft, setTimeLeft] = useState<{ hours: number; minutes: number; seconds: number }>({
     hours: initHours,
     minutes: initMinutes,
     seconds: initSeconds,
