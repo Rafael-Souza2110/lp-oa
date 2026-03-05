@@ -8,12 +8,9 @@ const paraVoce = [
 ]
 
 const naoParaVoce = [
-  'Acha que tirar música de ouvido é um "dom" que poucos têm.',
-  'Prefere teoria e aulas longas em vez de prática real.',
-  'Está satisfeito em depender dos outros pra achar o tom.',
-  'Você prefere continuar tocando apenas com cifras e não quer desenvolver o ouvido.',
-  'Prefere decorar acordes do que entender a música.',
-  'Quer um milagre — e não um método que realmente funciona.',
+  'Acha que é dom',
+  'Prefere cifras',
+  'Prefere decorar acordes',
 ]
 
 export function Section8Publico() {

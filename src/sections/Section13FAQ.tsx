@@ -3,44 +3,39 @@ import { config } from '../config'
 
 const faqs = [
   {
-    pergunta: 'Isso é um curso ou um aplicativo?',
+    pergunta: 'Isso é curso ou app?',
     resposta:
-      'O Ouvido Assembleiano é um aplicativo de treino auditivo, feito pra desenvolver o seu ouvido na prática, com situações reais — tipo cantor errando, tom mudando, ritmo variando. Você não assiste aula, você treina.',
+      'App de treino. Você não assiste aula — você pratica. É a diferença entre ler sobre academia e ir levantar peso.',
   },
   {
     pergunta: 'Funciona pra qualquer instrumento?',
     resposta:
-      'Sim! O método não é sobre dedo, é sobre ouvido. Se você toca teclado, violão, guitarra, baixo, bateria ou canta — o treino vai fortalecer a base que sustenta tudo: reconhecer o tom, os acordes e as variações musicais naturalmente.',
+      'Sim. O treino é de ouvido, não de dedo. Teclado, violão, guitarra ou baixo — todos se beneficiam.',
   },
   {
-    pergunta: 'Em quais aparelhos o app funciona?',
+    pergunta: 'Onde acesso?',
     resposta:
-      'Atualmente o Ouvido Assembleiano funciona em qualquer celular Android ou iPhone, tablet ou computador, com acesso à internet. Você só precisa fazer login com seu e-mail e já pode começar os treinos.',
+      'Em qualquer celular Android, iPhone, tablet ou computador com internet. Só fazer login e começar.',
   },
   {
-    pergunta: 'Por que eu deveria pagar R$ 39,90 se tem tanto conteúdo de graça no YouTube?',
+    pergunta: 'Por que pagar se tem tudo no YouTube?',
     resposta:
-      'O YouTube é uma biblioteca fantástica, mas não é um método de treino. Nele, você assiste passivamente. No Ouvido Assembleiano, você pratica ativamente. É a diferença entre ver alguém levantando peso e ir para a academia levantar o peso você mesmo. Nosso app oferece um ambiente de simulação, feedback instantâneo e um caminho estruturado para a sua evolução, coisas que nenhum vídeo gratuito pode oferecer.',
+      'No YouTube você assiste. Aqui você treina com feedback real e um caminho estruturado. Não é a mesma coisa.',
   },
   {
-    pergunta: 'Quanto tempo por dia eu preciso pra ver resultado?',
+    pergunta: 'Quanto tempo por dia?',
     resposta:
-      'Com 10 a 15 minutos por dia, você já começa a perceber melhora real no seu ouvido em poucas semanas. O segredo é a constância, não o tempo. É treino curto e certeiro — igual academia pro ouvido.',
+      '10 a 15 minutos já trazem resultado. O segredo é constância, não quantidade.',
   },
   {
-    pergunta: 'O que significa "Membro Fundador"?',
+    pergunta: 'E se eu for iniciante?',
     resposta:
-      'Ser Membro Fundador é estar entre os primeiros usuários a apoiar o projeto. Além de garantir o menor preço (R$39,90), você trava esse valor pra sempre — mesmo que o preço suba futuramente. É literalmente um "fundador" da comunidade do Ouvido Assembleiano.',
+      'Melhor ainda. O app começa do zero — sem teoria, sem campo harmônico, sem cifras.',
   },
   {
-    pergunta: 'Vai ter conteúdo novo sempre?',
+    pergunta: 'O que é o Plano Membro Fundador?',
     resposta:
-      'Sim. A gente atualiza o app com novos treinos, vozes, hinos e desafios periodicamente, pra você nunca parar de evoluir. O plano é crescer junto com o corpo de músicos da igreja — e você faz parte disso.',
-  },
-  {
-    pergunta: 'E se eu for iniciante total?',
-    resposta:
-      'Melhor ainda. O Ouvido Assembleiano foi pensado pra começar do zero, sem precisar entender de campo harmônico, escalas ou cifras. você vai desenvolver o ouvido de forma natural, do jeito que os músicos mais experientes fazem sem nem perceber.',
+      'Você está entre os primeiros usuários do app. Garante o menor preço (R$39,90) e trava esse valor pra sempre — além de acesso a todas as atualizações futuras.',
   },
 ]
 
