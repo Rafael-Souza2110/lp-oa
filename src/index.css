@@ -95,6 +95,60 @@ body {
   animation: swipe-hint 2s ease-in-out infinite;
 }
 
+/* Hero: entrada em 2 blocos (fade-up) */
+@keyframes fade-up-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate-block-1 {
+  animation: fade-up-in 0.4s ease-out forwards;
+}
+
+.hero-animate-block-2 {
+  animation: fade-up-in 0.4s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-animate-block-1,
+  .hero-animate-block-2 {
+    animation: none;
+  }
+  .hero-animate-block-2 {
+    opacity: 1;
+  }
+}
+
+/* Countdown: pulse sutil quando o número muda */
+@keyframes countdown-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-countdown-pulse {
+  animation: countdown-pulse 0.25s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-countdown-pulse {
+    animation: none;
+  }
+}
+
 /* Esconde scrollbar do carrossel no mobile */
 .overflow-x-auto::-webkit-scrollbar {
   display: none;

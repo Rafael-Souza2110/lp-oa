@@ -5,6 +5,20 @@ function pad(n: number) {
   return String(n).padStart(2, '0')
 }
 
+function CountdownDigit({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="flex min-w-[60px] flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 sm:min-w-[70px] sm:px-4 sm:py-3">
+      <span
+        key={value}
+        className="inline-block text-xl font-extrabold tabular-nums text-[#f97316] animate-countdown-pulse sm:text-2xl"
+      >
+        {value}
+      </span>
+      <span className="text-xs font-medium text-[var(--color-muted)]">{label}</span>
+    </div>
+  )
+}
+
 export function Countdown() {
   const { hours: initHours, minutes: initMinutes, seconds: initSeconds } = config.countdown
 
@@ -49,24 +63,9 @@ export function Countdown() {
 
   return (
     <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-      <div className="flex min-w-[60px] flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 sm:min-w-[70px] sm:px-4 sm:py-3">
-        <span className="text-xl font-extrabold tabular-nums text-[#f97316] sm:text-2xl">
-          {pad(timeLeft.hours)}
-        </span>
-        <span className="text-xs font-medium text-[var(--color-muted)]">horas</span>
-      </div>
-      <div className="flex min-w-[60px] flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 sm:min-w-[70px] sm:px-4 sm:py-3">
-        <span className="text-xl font-extrabold tabular-nums text-[#f97316] sm:text-2xl">
-          {pad(timeLeft.minutes)}
-        </span>
-        <span className="text-xs font-medium text-[var(--color-muted)]">min</span>
-      </div>
-      <div className="flex min-w-[60px] flex-col items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 sm:min-w-[70px] sm:px-4 sm:py-3">
-        <span className="text-xl font-extrabold tabular-nums text-[#f97316] sm:text-2xl">
-          {pad(timeLeft.seconds)}
-        </span>
-        <span className="text-xs font-medium text-[var(--color-muted)]">seg</span>
-      </div>
+      <CountdownDigit value={pad(timeLeft.hours)} label="horas" />
+      <CountdownDigit value={pad(timeLeft.minutes)} label="min" />
+      <CountdownDigit value={pad(timeLeft.seconds)} label="seg" />
     </div>
   )
 }
