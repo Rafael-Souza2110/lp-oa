@@ -13,6 +13,13 @@ export function Section5Solucao() {
         <h3 className="mb-6 text-center text-2xl font-extrabold text-[var(--color-foreground)]">
           Por isso criamos o Ouvido <span className="font-script text-[#f94f06]">Assembleiano</span>!
         </h3>
+        <div className="mx-auto mb-8 max-w-[75%]">
+          <img
+            src="/images/demo-app-gif.gif"
+            alt="Demonstração do app Ouvido Assembleiano por dentro"
+            className="w-full"
+          />
+        </div>
         <p className="mb-6 text-[var(--color-muted)]">
           O <span className="text-[#f94f06]">OUVIDO ASSEMBLEIANO é um app</span> com um acervo de
           áudios gravados por vozes reais, sem estúdio, sem produção,{' '}
@@ -28,13 +35,6 @@ export function Section5Solucao() {
         <p className="mb-8 text-[var(--color-muted)]">
           Você não fica mais dependente de cifra. <span className="text-[#f94f06]">Seu ouvido vira a cifra</span>.
         </p>
-        <div className="mx-auto mb-8 max-w-[75%]">
-          <img
-            src="/images/demo-app-gif.gif"
-            alt="Demonstração do app Ouvido Assembleiano por dentro"
-            className="w-full"
-          />
-        </div>
         {config.videos.apresentacao && (
           <YouTubeEmbed
             videoId={config.videos.apresentacao}
