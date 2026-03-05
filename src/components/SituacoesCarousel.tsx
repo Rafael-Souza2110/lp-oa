@@ -113,7 +113,7 @@ export function SituacoesCarousel({ items, autoSlideDuration = 10000 }: Situacoe
           <div
             key={i}
             ref={(el) => { cardRefs.current[i] = el }}
-            className="w-[calc(100vw-2.5rem)] max-w-full shrink-0 snap-center sm:w-[calc(100vw-4rem)]"
+            className="w-[calc(100vw-2.5rem)] max-w-full shrink-0 snap-center [scroll-snap-stop:always] sm:w-[calc(100vw-4rem)]"
           >
             <SituacaoCard texto={item.texto} icon={item.icon} />
           </div>
