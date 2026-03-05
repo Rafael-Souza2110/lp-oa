@@ -1,8 +1,6 @@
-import { CTAButton } from '../components/CTAButton'
-
 export function Section5Solucao() {
   return (
-    <section className="border-t border-[var(--color-border)] px-4 py-16 sm:px-6 sm:py-20">
+    <section id="solucao" className="border-t border-[var(--color-border)] px-4 py-16 sm:px-6 sm:py-20">
       <div className="container mx-auto max-w-4xl">
         <h2 className="mb-6 text-center text-2xl font-extrabold text-[var(--color-foreground)] sm:text-3xl">
           Mas e se você pudesse simular o caos do ao vivo: a pressão da igreja, o cantor que erra, o
@@ -33,9 +31,6 @@ export function Section5Solucao() {
         <p className="mb-8 text-[var(--color-muted)]">
           Você não fica mais dependente de cifra. <span className="text-[#f94f06]">Seu ouvido vira a cifra</span>.
         </p>
-        <div className="text-center">
-          <CTAButton>Quero começar a treinar</CTAButton>
-        </div>
       </div>
     </section>
   )

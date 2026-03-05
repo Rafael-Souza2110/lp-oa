@@ -72,7 +72,7 @@ const beneficiosOferta = [
 
 export function Section11Oferta() {
   return (
-    <section className="border-t border-[var(--color-border)] px-4 py-16 sm:px-6 sm:py-20">
+    <section id="oferta" className="border-t border-[var(--color-border)] px-4 py-16 sm:px-6 sm:py-20">
       <div className="container mx-auto max-w-2xl">
         <div className="rounded-2xl border-2 border-[#f97316] bg-[#f97316]/5 p-8 shadow-lg">
           <p className="mb-4 text-center font-bold text-[#f94f06]">

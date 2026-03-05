@@ -1,5 +1,3 @@
-import { CTAButton } from '../components/CTAButton'
-
 const beneficios = [
   'Você começa a pegar o tom em segundos.',
   'Não trava mais quando o cantor muda o tom no meio do hino.',
@@ -61,9 +59,6 @@ export function Section7Beneficios() {
             )
           })}
         </ol>
-        <div className="text-center">
-          <CTAButton>Quero essa transformação</CTAButton>
-        </div>
       </div>
     </section>
   )
