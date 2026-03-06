@@ -18,7 +18,9 @@ export function ScrollProgressBar() {
     const updateProgress = () => {
       const scrollY = window.scrollY
       const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      const value = docHeight > 0 ? Math.min(scrollY / docHeight, 1) : 0
+      const linear = docHeight > 0 ? Math.min(scrollY / docHeight, 1) : 0
+      // Curva front-loaded: avança MUITO no início, desacelera no fim (1 - (1-x)^4)
+      const value = linear >= 1 ? 1 : 1 - Math.pow(1 - linear, 4)
       setProgress(value)
     }
 
