@@ -89,7 +89,9 @@ export function Section13FAQ() {
       <div className="container mx-auto max-w-3xl">
         <h2 className="mb-10 text-center text-2xl font-extrabold text-[var(--color-foreground)] sm:text-3xl">
           Perguntas que todos fazem antes de assinar o{' '}
-          <span className="text-[#f97316]">Ouvido Assembleiano</span>
+          <span className="text-[#f97316]">
+            Ouvido <span className="font-script">Assembleiano</span>
+          </span>
         </h2>
         <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)] p-6 shadow-sm">
           {faqs.map((faq, i) => (
@@ -103,7 +105,7 @@ export function Section13FAQ() {
         </div>
         <div className="mt-16 text-center">
           <h3 className="mb-4 text-2xl font-extrabold text-[var(--color-foreground)]">
-            Gostaria de tirar dúvidas antes de comprar?
+            Gostaria de <span className="text-[#f97316]">tirar dúvidas</span> antes de comprar?
           </h3>
           <p className="mb-6 text-[var(--color-muted)]">
             Fique à vontade para visualizar as perguntas mais frequentes logo acima ou falar
