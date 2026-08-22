@@ -16,7 +16,7 @@ function getConfigValue<T>(envKey: string, fallback: T): T {
 
 export const config = {
   /** Link do checkout Hotmart */
-  checkoutUrl: getConfigValue('VITE_CHECKOUT_URL', 'https://pay.hotmart.com/M103015699U?off=698mux4e&checkoutMode=10'),
+  checkoutUrl: getConfigValue('VITE_CHECKOUT_URL', 'https://pay.hotmart.com/O107278361N?checkoutMode=10'),
 
   /** Link do WhatsApp para suporte/dúvidas */
   whatsappUrl: getConfigValue('VITE_WHATSAPP_URL', 'https://wa.me/5585982269676'),
