@@ -37,6 +37,11 @@ const faqs = [
     resposta:
       'Você está entre os primeiros usuários do app. Garante o menor preço (R$39,90) e trava esse valor pra sempre — além de acesso a todas as atualizações futuras.',
   },
+  {
+    pergunta: 'Vai cair mensalidade no meu cartão?',
+    resposta:
+      'Não. Não existe mensalidade. Você paga R$ 39,90 uma única vez e esse valor libera o aplicativo completo por 12 meses.',
+  },
 ]
 
 function FAQItem({
