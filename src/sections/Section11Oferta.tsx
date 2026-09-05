@@ -101,7 +101,7 @@ export function Section11Oferta() {
               R$ 39,90
             </p>
             <p className="text-sm text-[var(--color-muted)]">
-              Sem letrinhas miúdas!
+              1 Ano de Acesso • Sem Mensalidades • 7 Dias de Garantia
             </p>
           </div>
           <ul className="mb-8 space-y-3">
