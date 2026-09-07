@@ -23,7 +23,7 @@ export const config = {
 
   /** IDs dos vídeos do YouTube (apenas o ID, ex: "dQw4w9WgXcQ") */
   videos: {
-    hero: getConfigValue('VITE_VIDEO_HERO', 'xHqUfu1-css'),
+    hero: getConfigValue('VITE_VIDEO_HERO', '2UP4JmsvXvI'),
   },
 
   /** Temporizador regressivo (inicia quando o usuário acessa a página) */

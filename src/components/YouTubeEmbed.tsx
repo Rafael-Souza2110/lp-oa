@@ -18,7 +18,7 @@ export function YouTubeEmbed({ videoId, title = 'Vídeo', className = '' }: YouT
   }
 
   return (
-    <div className={`aspect-video w-full overflow-hidden rounded-2xl ${className}`}>
+    <div className={`aspect-[9/16] w-full overflow-hidden rounded-2xl ${className}`}>
       <iframe
         src={`https://www.youtube.com/embed/${videoId}`}
         title={title}
