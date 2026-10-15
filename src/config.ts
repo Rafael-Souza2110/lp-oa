@@ -21,6 +21,9 @@ export const config = {
   /** Link do WhatsApp para suporte/dúvidas */
   whatsappUrl: getConfigValue('VITE_WHATSAPP_URL', 'https://wa.me/5585982269676'),
 
+  /** ID do Meta Pixel (vazio = pixel desativado). Definido só no projeto do embaixador. */
+  metaPixelId: getConfigValue('VITE_META_PIXEL_ID', ''),
+
   /** IDs dos vídeos do YouTube (apenas o ID, ex: "dQw4w9WgXcQ") */
   videos: {
     hero: getConfigValue('VITE_VIDEO_HERO', '2UP4JmsvXvI'),
