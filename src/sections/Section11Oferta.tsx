@@ -98,7 +98,7 @@ export function Section11Oferta() {
               Valor exclusivo de lançamento!
             </p>
             <p className="mt-4 text-4xl font-extrabold text-[#f97316]">
-              R$ 39,90
+              R$ 49,90
             </p>
             <p className="text-sm text-[var(--color-muted)]">
               1 Ano de Acesso • Sem Mensalidades • 7 Dias de Garantia
