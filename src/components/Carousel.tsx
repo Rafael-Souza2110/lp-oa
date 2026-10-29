@@ -66,7 +66,12 @@ export function Carousel<T>({
 
     const card = cardRefs.current[REAL_START]
     if (card) {
-      el.scrollLeft = Math.max(0, card.offsetLeft - (el.offsetWidth - card.offsetWidth) / 2)
+      // 'instant' ignora o scroll-smooth do container; animado, o 1º evento de scroll
+      // chega perto de 0 e o loop pula para o último slide
+      el.scrollTo({
+        left: Math.max(0, card.offsetLeft - (el.offsetWidth - card.offsetWidth) / 2),
+        behavior: 'instant',
+      })
     }
   }, [items.length])
 
