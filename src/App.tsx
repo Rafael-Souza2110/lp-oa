@@ -9,6 +9,7 @@ const Section2Dor = lazy(() => import('./sections/Section2Dor').then((m) => ({ d
 const Section3Reframe = lazy(() => import('./sections/Section3Reframe').then((m) => ({ default: m.Section3Reframe })))
 const Section4Agitacao = lazy(() => import('./sections/Section4Agitacao').then((m) => ({ default: m.Section4Agitacao })))
 const Section5Solucao = lazy(() => import('./sections/Section5Solucao').then((m) => ({ default: m.Section5Solucao })))
+const Section6Famosos = lazy(() => import('./sections/Section6Famosos').then((m) => ({ default: m.Section6Famosos })))
 const Section7Beneficios = lazy(() => import('./sections/Section7Beneficios').then((m) => ({ default: m.Section7Beneficios })))
 const Section8Publico = lazy(() => import('./sections/Section8Publico').then((m) => ({ default: m.Section8Publico })))
 const Section9Depoimentos = lazy(() => import('./sections/Section9Depoimentos').then((m) => ({ default: m.Section9Depoimentos })))
@@ -62,39 +63,46 @@ function App() {
         <div className="section-block section-block--alt">
           <Suspense fallback={<SectionPlaceholder />}>
             <AnimateOnScroll delay={100}>
-              <Section7Beneficios />
+              <Section6Famosos />
             </AnimateOnScroll>
           </Suspense>
         </div>
         <div className="section-block section-block--base">
+          <Suspense fallback={<SectionPlaceholder />}>
+            <AnimateOnScroll delay={100}>
+              <Section7Beneficios />
+            </AnimateOnScroll>
+          </Suspense>
+        </div>
+        <div className="section-block section-block--alt">
           <Suspense fallback={<SectionPlaceholder />}>
             <AnimateOnScroll delay={100}>
               <Section8Publico />
             </AnimateOnScroll>
           </Suspense>
         </div>
-        <div className="section-block section-block--alt">
+        <div className="section-block section-block--base">
           <Suspense fallback={<SectionPlaceholder />}>
             <AnimateOnScroll delay={100}>
               <Section9Depoimentos />
             </AnimateOnScroll>
           </Suspense>
         </div>
-        <div className="section-block section-block--base">
+        <div className="section-block section-block--alt">
           <Suspense fallback={<SectionPlaceholder />}>
             <AnimateOnScroll delay={100}>
               <Section10ObjecaoPreco />
             </AnimateOnScroll>
           </Suspense>
         </div>
-        <div className="section-block section-block--alt">
+        <div className="section-block section-block--base">
           <Suspense fallback={<SectionPlaceholder />}>
             <AnimateOnScroll delay={100}>
               <Section11Oferta />
             </AnimateOnScroll>
           </Suspense>
         </div>
-        <div className="section-block section-block--base">
+        <div className="section-block section-block--alt">
           <Suspense fallback={<SectionPlaceholder />}>
             <AnimateOnScroll delay={100}>
               <Section13FAQ />
@@ -102,7 +110,7 @@ function App() {
           </Suspense>
         </div>
       </main>
-      <div className="section-block section-block--alt">
+      <div className="section-block section-block--base">
         <Footer />
       </div>
     </div>
