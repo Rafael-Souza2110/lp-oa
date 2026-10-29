@@ -18,7 +18,7 @@ export const config = {
   /** Link do checkout Greenn */
   checkoutUrl: getConfigValue(
     'VITE_CHECKOUT_URL',
-    'https://payfast.greenn.com.br/200977/offer/vIUsit?ch_id=133321&b_id_1=66609&b_offer_1=RonEui&b_id_2=66196&b_offer_2=KSbreW'
+    'https://payfast.greenn.com.br/y7fe6gv/offer/dpY1RD?ch_id=144849&b_id_1=k9kekbs&b_offer_1=nXOZlg&b_id_2=dre84ua&b_offer_2=oSw9cC'
   ),
 
   /** Link do WhatsApp para suporte/dúvidas */
