@@ -69,8 +69,10 @@ const beneficiosOferta = [
   'Modo Acompanhar (Toque os Acordes com a Música)',
   'Estatísticas de Progresso',
   'Suporte Via Whatsapp',
-  'Bônus 1: Comunidade de Usuários no Whatsapp',
-  'Bônus 2: Acesso a atualizações futuras (Exclusivo para membros fundadores)',
+  'Bônus 1: Plano de 7 Dias para Achar o Tom',
+  'Bônus 2: Roteiro de Emergência do Culto',
+  'Bônus 3: Comunidade de Usuários no Whatsapp',
+  'Bônus 4: Os Áudios Novos do Ano (todo áudio que entrar no app nos seus 12 meses de acesso)',
 ]
 
 export function Section11Oferta() {
@@ -106,7 +108,7 @@ export function Section11Oferta() {
           </div>
           <ul className="mb-8 space-y-3">
             {beneficiosOferta.map((item, i) => (
-              <li key={i} className="flex items-center gap-2 text-[var(--color-foreground)]">
+              <li key={i} className="flex items-start gap-2 text-[var(--color-foreground)]">
                 <span className="text-green-500">✔</span>
                 {item}
               </li>
