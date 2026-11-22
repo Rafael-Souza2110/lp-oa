@@ -4,6 +4,19 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logos/LOGO%20BRANCA.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tema antes da primeira pintura (mesma regra do ThemeContext): sem isto, quem usa modo escuro via a página clara por um instante -->
+    <script>
+      (function () {
+        var tema = null
+        try {
+          tema = localStorage.getItem('theme')
+        } catch (e) {}
+        if (tema !== 'light' && tema !== 'dark') {
+          tema = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+        document.documentElement.classList.add(tema)
+      })()
+    </script>
     <meta name="facebook-domain-verification" content="unwxtke3ysun8yzxuic4l3k694ew0f" />
     <meta name="description" content="Ouvido Assembleiano: o app que ensina qualquer músico a tirar músicas de ouvido em menos de 7 dias. Treine com vozes reais da igreja, sem banda, sob pressão. Pare de depender de cifra." />
     <title>Ouvido Assembleiano - Oficial</title>
