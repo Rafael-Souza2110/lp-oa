@@ -1,7 +1,7 @@
 const beneficios = [
   'Você começa a pegar o tom em segundos.',
   'Não trava mais quando o cantor muda o tom no meio do hino.',
-  'Aprende a construir os acordes na hora, sem depender de cifra.',
+  'Entende quais acordes cabem no tom e depende cada vez menos da cifra.',
   'Não treme mais as pernas ao tentar tirar músicas em tons menores',
   'E o melhor: seu ouvido fica tão treinado e preparado que parece até que você nasceu com o "dom".',
 ]
