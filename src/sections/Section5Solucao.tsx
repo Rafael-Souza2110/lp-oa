@@ -1,3 +1,5 @@
+import { PhoneVideo } from '../components/PhoneVideo'
+
 function LightbulbIcon() {
   return (
     <svg
@@ -38,16 +40,12 @@ export function Section5Solucao() {
         <h3 className="mb-6 text-center text-2xl font-extrabold text-[var(--color-foreground)]">
           Por isso criamos o Ouvido <span className="font-script text-[#f94f06]">Assembleiano</span>!
         </h3>
-        <div className="mx-auto mb-8 max-w-[75%]">
-          <img
-            src="/images/demo-app-gif.gif"
-            alt="Demonstração do app Ouvido Assembleiano por dentro"
-            width={640}
-            height={360}
-            className="w-full h-auto"
-            loading="lazy"
-          />
-        </div>
+        <PhoneVideo
+          mp4="/videos/demo-app.mp4"
+          poster="/images/demo-app-poster.webp"
+          label="Demonstração do app Ouvido Assembleiano por dentro"
+          className="mx-auto mb-8 w-[72%] max-w-[300px]"
+        />
         <p className="mb-6 text-[var(--color-foreground)]/85">
           O <span className="font-bold text-[#f94f06]">OUVIDO ASSEMBLEIANO é um app</span> com um acervo de
           áudios gravados por vozes reais, sem estúdio, sem produção,{' '}
