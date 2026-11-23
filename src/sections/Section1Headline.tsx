@@ -1,6 +1,5 @@
-import { config } from '../config'
 import { CTAButton } from '../components/CTAButton'
-import { YouTubeEmbed } from '../components/YouTubeEmbed'
+import { VturbPlayer } from '../components/VturbPlayer'
 
 export function Section1Headline() {
   return (
@@ -19,11 +18,8 @@ export function Section1Headline() {
           </p>
         </div>
         <div className="hero-animate-block-2">
-          <div className="mx-auto mb-8 max-w-3xl">
-            <YouTubeEmbed
-              videoId={config.videos.hero}
-              title="Ouvido Assembleiano - Apresentação"
-            />
+          <div className="mx-auto mb-8 max-w-[400px] overflow-hidden rounded-2xl">
+            <VturbPlayer />
           </div>
           <CTAButton scrollTo="solucao" ariaLabel="Ir para seção de solução">
             Treinar meu ouvido agora mesmo!
